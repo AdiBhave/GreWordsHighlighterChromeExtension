@@ -1,0 +1,31 @@
+body{
+    width: 200px;
+    height: 100px;
+    max-height: fit-content;
+    background-color: #E9EEEE;
+}
+
+#PlaceHolder{
+    text-align:  center;
+}
+
+#scan{
+    font-size: 85%;
+    /* background-color: #ff3c3c;
+    color: #ecf0f1; */
+}
+
+#btn{
+    font-size: 85%;
+    /* background-color: #ff3c3c;
+    color: #ecf0f1; */
+}
+
+.container-small{
+    width: 700px;
+}
+
+table {
+    margin: auto;
+    width: 50% !important; 
+}

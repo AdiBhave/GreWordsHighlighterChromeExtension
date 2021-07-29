@@ -1,0 +1,63 @@
+{
+  "name": "GRE Words Highlighter",
+  "description": "Scans and highlights the GRE words in a webpage on demand. Contains over 2000 words from three popular lists",
+  "version": "2.4",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/icons8-rescan-document-16.png",
+      "32": "/images/icons8-rescan-document-32.png",
+      "48": "/images/icons8-rescan-document-48.png",
+      "128": "/images/icons8-rescan-document-100.png"
+    },
+    "default_title" : "Click Me"
+  },
+  "icons": {
+    "16": "/images/icons8-rescan-document-16.png",
+    "32": "/images/icons8-rescan-document-32.png",
+    "48": "/images/icons8-rescan-document-48.png",
+    "128": "/images/icons8-rescan-document-100.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands":{
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y",
+        "chromeos": "Ctrl+Shift+U",
+        "linux": "Ctrl+Shift+J"
+      }
+    },
+    "start-highlighting":{
+      "suggested_key": {
+        "default": "Ctrl+Shift+H",
+        "mac": "Command+Shift+H"
+      },
+      "description" : "Used To Inject Content Script Which Will start Highlighting Words"
+    },
+    "open-options":{
+      "suggested_key":{
+        "default": "Ctrl+Shift+L",
+        "mac":"Command+Shift+L"
+      },
+      "description": "Used To open the Options Page"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches":["https://*/*","http://*/*"],
+      "css":["highlighter.css","snackbar.css"],
+      "js":["jquery-3.5.1.min.js"]
+      
+    }
+  ]
+
+}
