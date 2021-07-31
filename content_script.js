@@ -34,12 +34,16 @@ try{
                let newhtml = `<div class="grebhave">
                                  <a href=${query} target="blank" style="color:inherit;background-color:yellow;text-decoration:none">$&</a>
                                  <div class="grebhavetext">
-                                    <div style="text-align:center;font-size:15px;padding:2px">
-                                       <strong>${obj.rword}</strong><i style="font-size:12px;margin-left:5px">${obj.type}</i>
+                                    <div>
+                                       <strong style="text-align:left;font-size:18px;padding:2px;margin-left:7px">${obj.rword}</strong>
+                                       <i style="font-size:13px;margin-left:2px">${obj.type}</i>
+                                       <i style="font-size:11px;margin-left:7px">${obj.from}</i>
                                     </div>
-                                    <div style="text-align:center;font-size:13px;padding:2px">${obj.from}</div>
+                                    
+                                    <div style="text-align:left;font-size:14px;padding:2px;margin-left:7px">${obj.meaning}</div>
                                  </div>
-                              </div>`               
+                              </div>`
+
                let content = $(this).html().replace(
                   new RegExp('(?<!<[^>]*)[^<>]+(?!(>)|([^<]*<\/strong>)|([^<]*<\/a>))','g'),
                   str=>replaceActual(str,obj.word,newhtml)

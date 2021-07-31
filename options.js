@@ -1,7 +1,6 @@
 let page = document.getElementById("buttonDiv");
-const max = 3
+const max = 4
 var count
-
 const cbs = document.querySelectorAll('input[name="choice"]');
 const sAll = document.getElementById("cAll");
 const button = document.getElementById("btn")
@@ -65,13 +64,12 @@ button.onclick = () =>{
   }
 
   let index = processChoices(selectedList)
-  
   let parts = index.split(':')
   console.log(index)
   chrome.storage.sync.set({'index':parts[0]});
   chrome.storage.sync.set({'choice':parts[1]})
   chrome.storage.sync.set({'code':selectedList})
-  
+
   alert("Your Selection Is Saved")
   window.close()
 
@@ -86,22 +84,51 @@ function sanityCheck(){
   return false; 
 }
 
+
 function processChoices(digs){
   let disc = []
   let sc = []
-  for(let i = 0; i< digs.length; i++){
+  let score = 0
+
+  for(let i = 0; i< digs.length; i++)
+  {
     if(digs[i] == 0)disc.push(i)
-    else sc.push(i)
+    else{ 
+      sc.push(i)
+      score+=1
+    }
   }
 
-  if(disc.length == 0){
-    return '1:all'
+  switch(score){
+    
+    case 1:
+      return `${sc[0]}:one`
+      
+    case 2:
+      return `${sc[0]},${sc[1]}:two`
+      
+    case 3:
+      return `${(disc[0]+1)%4}:three`  
+      
+    case 4:
+      return `0:all`
+          
   }
-  else if(disc.length == 1){
-    return `${(disc[0]+1)%3}:two`
-  }
-  else{ 
-   return `${sc[0]}:one` 
-  }
+
+  // if(disc.length == 0){
+  //   return '1:all'
+  // }
+  // else if(disc.length == 1){
+  //   return `${(disc[0]+1)%4}:three`
+  // }
+  // else if(disc.length == 2){ 
+  //  return `${sc[0]}:one` 
+  // }
+  // else if(disc.length == 3){
+
+  // }
+  // else{
+  //   return `${sc[0]}:one`
+  // }
   
 }

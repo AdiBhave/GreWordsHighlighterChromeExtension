@@ -6,25 +6,27 @@
 
 .grebhave .grebhavetext {
   visibility: hidden;
-  min-width: 140px;
-  max-width: fit-content;
+
+  min-height: 70px;
+  max-height: fit-content;
+  max-width:max-content;
+  min-width: 300px;
   background-color: lightgoldenrodyellow;
-  /* background-color: #E9EEEE; */
   color: #000;
-  text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: n;
   padding: 1px 0;
   position: absolute;
   z-index: 1;
   bottom: 110%;
-  left: 50%;
-  margin-left: -60px;
+  /* left: 15%; */
+  margin-left:-120px;
   opacity: 0;
   transition: opacity 0.3s;
   font-family: Arial, Helvetica, sans-serif;
   font-style: unset;
   padding: 2px;
-  box-shadow: #000;
+  /* box-shadow:2px 2px #000; */
   /*font-size: 13px;*/
 }
 
@@ -36,7 +38,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: lightgoldenrodyellow transparent transparent transparent;
 }
 
 .grebhave:hover .grebhavetext {
